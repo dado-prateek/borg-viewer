@@ -11,10 +11,11 @@ import re
 import functools
 import locale
 
+
 class friv:
 
     window = object()
-    working_dir = "~"
+    working_dir = '~'
     image_files = []
     image_index = 0
     image = gtk.Image()
@@ -78,7 +79,7 @@ class friv:
         self.window.connect("delete_event", self.close_application)
         bg_color = gtk.gdk.color_parse('#000000')
         self.window.modify_bg(gtk.STATE_NORMAL, bg_color)
-        self.window.fullscreen()
+
 
         # Setup main view
         hbox = gtk.HBox()
@@ -108,6 +109,7 @@ class friv:
             self.image.set_from_pixbuf(self.load_pixbuf(start_file_path))
             self.image.show()
             hbox.add(self.image)
+            self.window.fullscreen()
         except IndexError:
             pass
 
