@@ -8,7 +8,8 @@ import gtk
 import sys
 import os.path
 import re
-
+import functools
+import locale
 
 class friv:
 
@@ -28,7 +29,7 @@ class friv:
 
     def image_files_in_dir(self, dir_path):
         image_file_list = [f for f in os.listdir(dir_path) if re.search(r'.*\.(jpg|png|gif)$', f)]
-        return sorted(image_file_list, reverse=True)
+        return sorted(image_file_list, key=functools.cmp_to_key(locale.strcoll), reverse=True)
 
     def close_application(self, widget, event, data=None):
         gtk.main_quit()
