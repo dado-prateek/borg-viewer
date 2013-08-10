@@ -15,7 +15,6 @@ class friv:
     image = gtk.Image()
     next_image = gtk.Image()
 
-
     def close_application(self, widget, event, data=None):
         gtk.main_quit()
         return False
@@ -46,7 +45,12 @@ class friv:
         pass
 
     def mouse_scroll(self, widget, event):
-        pass
+        if event.type == 4:
+            # scroll up
+            pass
+        elif event.type == 5:
+            # scroll down
+            pass
 
     def __init__(self):
         self.window.set_position(gtk.WIN_POS_CENTER)
