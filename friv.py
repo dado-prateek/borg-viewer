@@ -62,7 +62,7 @@ class friv:
     def mouse_scroll(self, widget, event, image):
 
         if event.direction == gtk.gdk.SCROLL_UP:
-            if self.image_index < len(self.image_files):
+            if self.image_index < len(self.image_files) - 1:
                 self.image_index += 1
         elif event.direction == gtk.gdk.SCROLL_DOWN:
             if self.image_index > 0:
