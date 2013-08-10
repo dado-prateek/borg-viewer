@@ -15,6 +15,7 @@ class friv:
     image = gtk.Image()
     next_image = gtk.Image()
 
+
     def close_application(self, widget, event, data=None):
         gtk.main_quit()
         return False
@@ -44,6 +45,9 @@ class friv:
     def show_error(self):
         pass
 
+    def mouse_scroll(self, widget, event):
+        pass
+
     def __init__(self):
         self.window.set_position(gtk.WIN_POS_CENTER)
         self.window.connect("delete_event", self.close_application)
@@ -63,6 +67,10 @@ class friv:
                                 gtk.ACCEL_VISIBLE,
                                 gtk.main_quit)
         self.window.add_accel_group(accelgroup)
+
+        #Mouse scroll
+        self.window.add_events(gtk.gdk.SCROLL_MASK)
+        self.window.connect("scroll-event", self.mouse_scroll)
 
         # Loading file
         try:
