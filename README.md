@@ -14,6 +14,7 @@ Requirements
 - PyGTK
 
 Usage
+
     friv.py /full/path/to/file.jpg
 
 Todo
