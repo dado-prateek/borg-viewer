@@ -6,14 +6,24 @@ import pygtk
 pygtk.require('2.0')
 import gtk
 import sys
+import os.path
+import glob
 
 
 class friv:
-    window = gtk.Window(gtk.WINDOW_TOPLEVEL)
+
+    window = object()
+    working_dir = "~"
+    image_files = []
+    current_image_index = 0
+    image = gtk.Image()
+    preloaded_image = gtk.Image()
+
     #fixme: change numbers to actual screen size
     screen_width, screen_height = 1920, 1080
-    image = gtk.Image()
-    next_image = gtk.Image()
+
+    def next_image(self):
+        pass
 
     def close_application(self, widget, event, data=None):
         gtk.main_quit()
@@ -52,13 +62,20 @@ class friv:
             # scroll down
             pass
 
+    def get_image_files_from_dir(self):
+        self.image_files.extend(glob(self.working_dir+'\.jpg'))
+
     def __init__(self):
+
+        # Setup main window
+        self.window = gtk.Window(gtk.WINDOW_TOPLEVEL)
         self.window.set_position(gtk.WIN_POS_CENTER)
         self.window.connect("delete_event", self.close_application)
         bg_color = gtk.gdk.color_parse('#000000')
         self.window.modify_bg(gtk.STATE_NORMAL, bg_color)
         self.window.fullscreen()
 
+        # Setup main view
         hbox = gtk.HBox()
         hbox.show()
         self.window.add(hbox)
@@ -76,22 +93,16 @@ class friv:
         self.window.add_events(gtk.gdk.SCROLL_MASK)
         self.window.connect("scroll-event", self.mouse_scroll)
 
-        # Loading file
+        # Loading first file
         try:
-            filename = str(sys.argv[1])
+            start_file_path = str(sys.argv[1])
+            print(start_file_path)
+            self.working_dir, filename = os.path.split(start_file_path)
+            self.image = self.load_image(start_file_path)
+            self.image.show()
+            hbox.add(self.image)
         except IndexError:
-            filename = ''
-
-        if filename:
-            # try:
-                self.image = self.load_image(filename)
-                self.image.show()
-                hbox.add(self.image)
-            # except:
-            #     error_label = gtk.Label('<font color="green">Can not load file: ' + filename + '</font>')
-            #     error_label.set_use_markup(True)
-            #     error_label.show()
-            #     hbox.add(error_label)
+            pass
 
         self.window.show()
 
