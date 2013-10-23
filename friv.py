@@ -29,7 +29,9 @@ class friv:
         return pixbuf
 
     def image_files_in_dir(self, dir_path):
-        image_file_list = [f for f in os.listdir(dir_path) if re.search(r'.*\.(jpg|png|gif)$', f)]
+        image_file_list = [
+            f for f in os.listdir(dir_path) if re.search(r'.*\.(jpg|jpeg|png|gif)$', f, re.IGNORECASE)
+        ]
         return sorted(image_file_list, key=functools.cmp_to_key(locale.strcoll), reverse=True)
 
     def close_application(self, widget, event, data=None):
@@ -48,10 +50,10 @@ class friv:
         aspect = float(width) / height
 
         if height > self.screen_height:
-            height = 1080
-            width = 1080 * aspect
+            height = self.screen_height
+            width = height * aspect
         elif width > self.screen_width:
-            width = 1920
+            width = self.screen_width
             height = width / aspect
 
         pixbuf = pixbuf.scale_simple(int(width), int(height), gtk.gdk.INTERP_BILINEAR)
