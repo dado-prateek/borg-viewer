@@ -10,6 +10,7 @@ Features
 - Esc is exit
 
 Requirements
+- Ubuntu
 - Python
 - PyGTK
 
