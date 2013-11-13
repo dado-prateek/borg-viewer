@@ -1,4 +1,4 @@
 icondir = $(datadir)/icons/hicolor/128x128/apps
-icon_DATA = Viewer.png
+icon_DATA = viewer.png
 
 EXTRA_DIST = $(icon_DATA)

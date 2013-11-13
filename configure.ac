@@ -5,6 +5,7 @@ AM_PATH_PYTHON([2.5])
 
 AC_CONFIG_FILES([
 	Makefile
+    data/Makefile
 	data/Viewer.desktop
 	data/icons/Makefile
 	data/icons/hicolor/Makefile

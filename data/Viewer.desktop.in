@@ -1,6 +1,6 @@
 [Desktop Entry]
 Type=Application
-Exec=@PACKAGE@
+Exec=@PACKAGE@ %f
 Name=@PACKAGE_NAME@
 Categories=Graphics;Viewer
 Icon=@PACKAGE@
