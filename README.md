@@ -14,8 +14,11 @@ Requirements
 - Python
 - PyGTK
 
+Installation
+ - make install
+
 Usage
-    friv.py /full/path/to/file.jpg
+- friv.py /full/path/to/file.jpg
 
 Todo
 - Preloading cache
