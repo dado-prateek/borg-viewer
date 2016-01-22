@@ -1,4 +1,4 @@
-FastRock Image viewer
+Borg Viewer
 ==============
 
 Simple image viewer

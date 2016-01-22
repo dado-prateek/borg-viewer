@@ -1,0 +1,9 @@
+Metadata-Version: 1.2
+Name: borg-viewer
+Version: 0.1
+Supported-Platform: Ubuntu
+Summary: Simple image viewer.
+Description: Simple image viewer.
+Home-page: https://github.com/qborg/borg-viewer/
+Author: Gregory Borg
+Author-email: "Gregory Borg" <borg@masha.sexy>
